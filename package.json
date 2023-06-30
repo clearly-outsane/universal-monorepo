@@ -5,6 +5,9 @@
     "apps/*",
     "packages/*"
   ],
+  "prisma": {
+    "schema": "./packages/db/prisma/schema.prisma"
+  },
   "scripts": {
     "native": "cd apps/expo && yarn start",
     "watch": "yarn workspaces foreach -pi run watch",
@@ -14,8 +17,9 @@
     "web:prod": "yarn workspace next-app build",
     "web:prod:serve": "yarn workspace next-app serve",
     "fix": "manypkg fix",
-    "postinstall": "yarn check-deps && yarn build && yarn generate",
-    "build": "yarn workspaces foreach --exclude next-app run build",
+    "postinstall": "yarn check-deps && yarn build:ui && yarn generate",
+    "build:ui": "cd packages/ui && yarn build",
+    "build": "turbo build",
     "upgrade:tamagui": "yarn up '*tamagui*'@latest '@tamagui/*'@latest react-native-web-lite@latest",
     "upgrade:tamagui:canary": "yarn up '*tamagui*'@canary '@tamagui/*'@canary react-native-web-lite@canary",
     "check-deps": "check-dependency-version-consistency .",

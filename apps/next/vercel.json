@@ -1,3 +1,4 @@
 {
-  "installCommand": "yarn set version stable && yarn install"
+  "installCommand": "yarn set version stable && yarn install",
+  "buildCommand": "yarn run build --filter=next-app"
 }
