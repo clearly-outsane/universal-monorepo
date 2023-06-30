@@ -19,7 +19,7 @@
     "fix": "manypkg fix",
     "postinstall": "yarn check-deps && yarn build:ui && yarn generate",
     "build:ui": "cd packages/ui && yarn build",
-    "build": "turbo build",
+    "build": "turbo build --filter=!next-app",
     "upgrade:tamagui": "yarn up '*tamagui*'@latest '@tamagui/*'@latest react-native-web-lite@latest",
     "upgrade:tamagui:canary": "yarn up '*tamagui*'@canary '@tamagui/*'@canary react-native-web-lite@canary",
     "check-deps": "check-dependency-version-consistency .",
