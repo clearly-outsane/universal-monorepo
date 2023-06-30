@@ -3,6 +3,7 @@ import { useColorScheme } from 'react-native'
 
 import { ToastViewport } from './ToastViewport'
 import config from '../tamagui.config'
+import { TRPCProvider } from 'app/utils/trpc'
 
 export function Provider({ children, ...rest }: Omit<TamaguiProviderProps, 'config'>) {
   const scheme = useColorScheme()
@@ -23,8 +24,7 @@ export function Provider({ children, ...rest }: Omit<TamaguiProviderProps, 'conf
           ]
         }
       >
-        {children}
-
+        <TRPCProvider>{children}</TRPCProvider>
         <CustomToast />
         <ToastViewport />
       </ToastProvider>
