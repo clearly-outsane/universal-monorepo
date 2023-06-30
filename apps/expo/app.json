@@ -33,7 +33,8 @@
     "extra": {
       "eas": {
         "projectId": "[your_project_id]"
-      }
+      },
+      "productionApiUrl": "https://immagine.vercel.app/api"
     }
   }
 }
