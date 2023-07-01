@@ -1,6 +1,6 @@
 import { authMiddleware } from '@clerk/nextjs'
 
-export default authMiddleware()
+export default authMiddleware({ publicRoutes: ['/'] })
 
 //exclude static files n such from being processed by Clerk. Include trpc
 export const config = {
