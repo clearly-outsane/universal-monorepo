@@ -18,7 +18,9 @@ const t = initTRPC.context<Context>().create({
 //but TLDR: context is an object that is passed to every procedure
 //and can be modified by middleware
 const isAuthed = t.middleware(({ next, ctx }) => {
+  console.log('isAuthed')
   if (!ctx.user) {
+    console.log('not authenticated')
     throw new TRPCError({ code: 'UNAUTHORIZED', message: 'Not authenticated' })
   }
   return next({

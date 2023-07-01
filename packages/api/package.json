@@ -4,6 +4,7 @@
   "types": "./index.ts",
   "license": "MIT",
   "dependencies": {
+    "@clerk/nextjs": "^4.21.13",
     "@my/db": "*",
     "@trpc/client": "^10.33.0",
     "@trpc/server": "^10.33.0",

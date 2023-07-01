@@ -5,6 +5,16 @@ module.exports = function (api) {
     plugins: [
       require.resolve('expo-router/babel'),
       [
+        'module:react-native-dotenv',
+        {
+          moduleName: '@env',
+          path: '../../.env',
+          allowlist: ['NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY'],
+          safe: false,
+          allowUndefined: true,
+        },
+      ],
+      [
         require.resolve('babel-plugin-module-resolver'),
         {
           root: ['../..'],

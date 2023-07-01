@@ -1,5 +1,5 @@
 import { Toast, useToastState } from '@tamagui/toast'
-import { YStack } from 'tamagui'
+import { YStack, styled } from 'tamagui'
 
 export const NativeToast = () => {
   const currentToast = useToastState()
@@ -10,6 +10,7 @@ export const NativeToast = () => {
 
   return (
     <Toast
+      borderRadius={8}
       key={currentToast.id}
       duration={currentToast.duration}
       viewportName={currentToast.viewportName}

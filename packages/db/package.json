@@ -20,7 +20,6 @@
     "@prisma/client": "latest"
   },
   "devDependencies": {
-    "dotenv-cli": "^6.0.0",
     "prisma": "latest"
   }
 }

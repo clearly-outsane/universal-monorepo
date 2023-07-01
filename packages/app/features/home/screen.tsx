@@ -10,13 +10,25 @@ import {
   YStack,
 } from '@my/ui'
 import { ChevronDown, ChevronUp } from '@tamagui/lucide-icons'
-import React, { useState } from 'react'
+import { trpc } from 'app/utils/trpc'
+import React, { useEffect, useState } from 'react'
 import { useLink } from 'solito/link'
+import { SignedIn, SignedOut, useAuth } from '../../utils/clerk'
 
 export function HomeScreen() {
+  const utils = trpc.useContext()
   const linkProps = useLink({
     href: '/user/nate',
   })
+  const { signOut, userId } = useAuth()
+  const signInLinkProps = useLink({
+    href: '/sign-in',
+  })
+  const test = trpc.test.getSecretMessage.useQuery({}, { cacheTime: 0 })
+
+  useEffect(() => {
+    console.log('test.data', test.data)
+  }, [test.data])
 
   return (
     <YStack f={1} jc="center" ai="center" p="$4" space>
@@ -28,23 +40,29 @@ export function HomeScreen() {
         </Paragraph>
 
         <Separator />
+
         <Paragraph ta="center">
-          Made by{' '}
-          <Anchor color="$color12" href="https://twitter.com/natebirdman" target="_blank">
-            @natebirdman
-          </Anchor>
-          ,{' '}
-          <Anchor
-            color="$color12"
-            href="https://github.com/tamagui/tamagui"
-            target="_blank"
-            rel="noreferrer"
-          >
-            give it a ⭐️
-          </Anchor>
+          tRPC: {test.error ? 'Login to see a secret' : test.data ?? 'Login to see a secret'}
         </Paragraph>
       </YStack>
-
+      <SignedOut>
+        <XStack space ai="center">
+          <Button {...signInLinkProps} theme={'dark'}>
+            Sign In
+          </Button>
+        </XStack>
+      </SignedOut>
+      <SignedIn>
+        <Paragraph mb="$4">{userId}</Paragraph>
+        <Button
+          onPress={() => {
+            signOut()
+          }}
+          theme={'red'}
+        >
+          Sign Out
+        </Button>
+      </SignedIn>
       <XStack>
         <Button {...linkProps}>Link to user</Button>
       </XStack>
