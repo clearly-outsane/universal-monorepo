@@ -1,22 +1,15 @@
-# Tamagui + Solito + Next + Expo Monorepo
-
-```sh
-npm create tamagui
-```
-
-## 🔦 About
-
-This monorepo is a starter for an Expo + Next.js + Tamagui + Solito app.
-
-Many thanks to [@FernandoTheRojo](https://twitter.com/fernandotherojo) for the Solito starter monorepo which this was forked from. Check out his [talk about using expo + next together at Next.js Conf 2021](https://www.youtube.com/watch?v=0lnbdRweJtA).
+# Immagine Monorepo
 
 ## 📦 Included packages
 
-- [Tamagui](https://tamagui.dev) 🪄
+- [Tamagui](https://tamagui.dev)
 - [solito](https://solito.dev) for cross-platform navigation
 - Expo SDK
 - Next.js
 - Expo Router
+- Clerk for auth
+- Prisma
+- tRPC
 
 ## 🗂 Folder layout
 
@@ -34,6 +27,8 @@ The main apps are:
 You can add other folders inside of `packages/` if you know what you're doing and have a good reason to.
 
 ## 🏁 Start the app
+
+Make sure to always have the web server running before starting the native app. The Expo app uses Next.js as the backend.
 
 - Install dependencies: `yarn`
 
