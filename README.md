@@ -1,4 +1,4 @@
-# Immagine Monorepo
+# Universal Monorepo
 
 ## 📦 Included packages
 
